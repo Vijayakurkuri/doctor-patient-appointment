@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: linear-gradient(#58abc7,#2671a3);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            /* padding-top: 50px; */
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+        }
+
+        h1, h2, h3 {
+            color: #000000;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #cfcada;
+            color: white;
+            width: 150px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            align-self: center;
+        }
+
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    <h2>Your Appointments:</h2>
+    <ul>
+        {% if appointments %}
+            {% for doctor, appointments_list in appointments.items() %}
+                <li>
+                    <h3>{{ doctor }} Appointments:</h3>
+                    <ul>
+                        {% for appointment in appointments_list %}
+                            <li>{{ appointment.patientName }} - {{ appointment.strftime('%Y-%m-%d %H:%M') }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>No appointments scheduled.</li>
+        {% endif %}
+    </ul>
+    <button><a href="/schedule">Schedule Appointment</a></button>
+    <br><br>
+    <a href="/logout">Logout</a>
+</body>
+</html>

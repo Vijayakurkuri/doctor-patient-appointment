@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Successful</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6b9cad;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #100505;
+        }
+
+        p {
+            color: #0e0404;
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        a {
+            color: #070107;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Appointment Scheduled Successfully</h1>
+    <p>Your appointment with {{ doctor_name }} ({{ specialization }}) has been successfully scheduled for {{ appointment_datetime.strftime('%B %d, %Y at %I:%M %p') }}.</p>
+    <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>
+

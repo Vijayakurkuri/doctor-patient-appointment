@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schedule Appointment</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #176b86; text-align: center; padding-top: 50px;">
+
+    <h1 style="color: #000;">Schedule Appointment</h1>
+
+    <form method="post" style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #DAFFFB; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
+
+        <label for="doctor" style="display: block; margin-bottom: 10px; color: #333;">Select Doctor:</label>
+        <select id="doctor" name="doctor" style="width: 80%; padding: 12px; border: 2px solid #CCC; border-radius: 5px; font-size: 16px; margin-bottom: 20px;">
+            {% for username, doctor_data in doctors.items() %}
+                <option value="{{ username }}">{{ doctor_data['name'] }} ({{ doctor_data['specialization'] }})</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="date" style="display: block; margin-bottom: 10px; color: #333;">Select Date:</label>
+        <input type="date" id="date" name="date" required style="width: 80%; padding: 12px; border: 2px solid #CCC; border-radius: 5px; font-size: 16px; margin-bottom: 20px;">
+        <br>
+
+        <label for="time" style="display: block; margin-bottom: 10px; color: #333;">Select Time:</label>
+        <input type="time" id="time" name="time" required style="width: 80%; padding: 12px; border: 2px solid #CCC; border-radius: 5px; font-size: 16px; margin-bottom: 20px;">
+        <br>
+
+        <button type="submit" style="background-color: #176B87; color: #FFF; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Schedule</button>
+    </form>
+    
+    <br>
+    <a href="/dashboard" style="color: #176B87; text-decoration: none; font-weight: bold;">Back to Dashboard</a>
+    <br>
+    <a href="/logout" style="color: #176B87; text-decoration: none; font-weight: bold;">Logout</a>
+</body>
+</html>
+

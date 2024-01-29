@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .re {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            justify-content: center;
+            background-image: linear-gradient( #A5D7E8,#19376D);
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .border {
+            max-width: 400px;
+            padding: 40px;
+            background-color: #DAFFFB;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            margin-bottom: 80px;
+            /* position: fixed; */
+        }
+    
+        .header {
+            margin-bottom: 0px;
+            width: 120px;
+        }
+    
+        .word {
+            color: #333333; /* Change to pink color */
+            border-radius: 15px;
+            font-size: 20px;
+        }
+    
+        .textbox {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #DAFFFB;
+            border-radius: 20px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    
+        .btn {
+            background-color: #6495ED;
+            color: #FFFFFF;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #333333;
+        }
+    
+        .msg {
+            color: #FF0000;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        .bottom {
+            margin-top: 20px;
+        }
+    
+        .bottom a {
+            color:#007BFF;
+            text-decoration: none;
+        }
+    
+        #email::placeholder {
+            color:  #4e4b4b; /* Change to a lighter blue color */
+        }
+        #username::placeholder {
+            color:  #4e4b4b; /* Change to a lighter blue color */
+        }
+        #password::placeholder {
+            color:  #4e4b4b; /* Change to a lighter blue color */
+        }
+    
+        @media screen and (max-width: 480px) {
+            .border {
+                padding: 20px;
+                border-radius: 20px;
+            }
+    
+            .textbox {
+                font-size: 14px;
+            }
+        }
+    </style>
+    
+</head>
+<body class="re">
+    <div class="border">
+        <div class="header">
+            <h1 class="word" style="color: #333333;">Register</h1>
+        </div>
+        <h2 class="word">
+            <form action="{{ url_for('register') }}" method="post">
+                <div class="msg">{{ msg }}</div>
+                <input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox"></br></br>
+                <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"></br></br>
+                <input id="email" name="email" type="text" placeholder="Enter Your Email ID" class="textbox"></br></br>
+                <input type="submit" class="btn" style="background-color: #176B87;" value="Sign Up"></br>
+            </form>
+        </h2>
+        <p class="bottom">Already have an account? <a class="bottom" href="{{url_for('login')}}" style="color: #6495ED;">Sign In here</a></p>
+    </div>
+</body>
+</html>
+
+
+
